@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>gulp</title>
+  <link rel="stylesheet" href="./css/dist.min.css">
+  <link href="https://cdn.bootcss.com/Swiper/4.4.2/css/swiper.min.css" rel="stylesheet">
+</head>
+<body>
+  <div id="wrap">
+      <!--头部-->
+      <header class="daowei-header">
+        <div class="header-top">
+          <div class="header-left" >
+              <img src="./images/citypoint.png" alt="定位" >
+              <p>北京 <span style="color: grey;">[切换城市]</span></p>
+          </div>
+          <div class="header-right">
+            <ul class="header-right-list">
+              <li><a href="javascript:;" class="cbcolor">首页</a></li>
+              <li><a href="javascript:;">关于我们</a></li>
+              <li><a href="./merchants/merchants.html">服务商</a></li>
+              <li><a href="javascript:;">商家入驻</a></li>
+              <li><a href="javascript:;">商家登陆</a></li>
+              <li><a href="javascript:;">到位App</a></li>
+            </ul>
+          </div>
+
+        </div>
+        <div class="header-content">
+          <ul class="content-list">
+            <li class="list-one">
+              <img src="http://www.daoway.com/pcimages/logo@2x.png" alt="logo"title="官网首页">
+            </li>
+
+            <li class="list-two">
+              <input class="two-search" type="text" placeholder="🔍 &nbsp;输入关键词搜索商家,服务">
+              <span >搜服务</span>
+            </li>
+
+            <li class="list-three">
+              <div class="small-triangle"></div>
+              <img src="http://www.daoway.com/pcimages/daowayApp@2x.png" title="扫码注册">
+            </li>
+          </ul>
+        </div>
+      </header>
+      <!--轮播图-->
+      <section id="image-ad">
+        <div class="image-ad-item1">
+
+          <div class="swiper-container">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img src="./images/banner1.jpg" alt="">
+              </div>
+              <div class="swiper-slide">
+                <img src="./images/banner2.jpg" alt="">
+              </div>
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+          </div>
+          <div class="banner-nav">
+            <ul class="banner-list">
+              <li><a href="##">家庭保洁 &nbsp;&nbsp;></a></li>
+              <li><a href="##">上门按摩 &nbsp;&nbsp;></a></li>
+              <li><a href="##">上门维修 &nbsp;&nbsp;></a></li>
+              <li><a href="##">家店清洗 &nbsp;&nbsp;></a></li>
+              <li><a href="##">衣服西护 &nbsp;&nbsp;></a></li>
+              <li><a href="##">搬家速运 &nbsp;&nbsp;></a></li>
+              <li><a href="##">美容美妆 &nbsp;&nbsp;></a></li>
+              <li><a href="##">上门安装 &nbsp;&nbsp;></a></li>
+              <li><a href="##">上门医护 &nbsp;&nbsp;></a></li>
+              <li><a href="##">保姆月嫂 &nbsp;&nbsp;></a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <!--商品列表-->
+      <section class="goods-list">
+
+      </section>
+
+  </div>
+
+  <script type="text/javascript" src="./js/jq.js"></script>
+  <script type="text/javascript" src="./js/template.js"></script>
+  <script type="text/javascript" src="./js/dist.min.js"></script>
+  <script type="text/javascript" src="./js/animation.js"></script>
+  <script src="https://cdn.bootcss.com/Swiper/4.4.2/js/swiper.min.js"></script>
+
+
+  <script type="text/html" id="goodsList">
+  {{each data as value i}}
+  <div>
+    <div class="goods-top">
+      <h2>{{value.serviceIndex}}</h2>
+    </div>
+    <ul class="goods-fuwu">
+      {{each value.serviceType as items i}}
+      <li>{{items}}</li>
+
+      {{/each}}
+      <li>查看更多  ></li>
+    </ul>
+    <div class="img-list">
+      <ul class="img-list-ul">
+        {{each value.shopList as list i}}
+        <li class="img-list-item1">
+          <img src={{list.imgUrl}} alt="">
+          <p class="item-title nowrap">{{list.serviceName}}</p>
+          <p class="item-directions">{{list.description}}</p>
+          <div class="item-bottom">
+            <span class="item-price">{{list.price}}</span>
+            <span class="item-time">元/小时</span>
+            <a href="##" class="item-details">查看详情</a>
+          </div>
+        </li>
+        {{/each}}
+      </ul>
+    </div>
+    <div class="merchants-name">
+      <ul class="merchants-list">
+        {{each value.elseList as elses i}}
+        <li><a href="##">{{elses}}</a></li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+    {{/each}}
+  </script>
+  <script type="text/javascript">
+     new Swiper('.swiper-container', {
+        pagination: {
+           el: '.swiper-pagination',
+        },
+     });
+  </script>
+
+</body>
+</html>
